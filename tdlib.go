@@ -329,7 +329,7 @@ func (client *Client) sendTdLibParams() {
 
 // SendPhoneNumber sends phone number to tdlib
 func (client *Client) SendPhoneNumber(phoneNumber string) (AuthorizationState, error) {
-	_, err := client.SetAuthenticationPhoneNumber(phoneNumber, false, false)
+	_, err := client.SetAuthenticationPhoneNumber(phoneNumber, nil)
 
 	if err != nil {
 		return nil, err
@@ -341,7 +341,7 @@ func (client *Client) SendPhoneNumber(phoneNumber string) (AuthorizationState, e
 
 // SendAuthCode sends auth code to tdlib
 func (client *Client) SendAuthCode(code string) (AuthorizationState, error) {
-	_, err := client.CheckAuthenticationCode(code, "", "")
+	_, err := client.CheckAuthenticationCode(code)
 
 	if err != nil {
 		return nil, err
